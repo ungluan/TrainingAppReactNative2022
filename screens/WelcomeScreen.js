@@ -87,9 +87,18 @@ const Welcome = props => {
           {accountTypes.map(account => 
             <MyButton
               onPressed={() => {
-                let newAccountType = acc
-                account.isSelected = !account.isSelected;
-                alert(account.name)
+                let newAccountType = accountTypes.map(item =>{
+                  return {
+                      ...item,
+                      isSelected: item.name == account.name
+                    }
+                  // if(account.name == item.name){
+                  //   item.isSelected = !item.isSelected
+                  // }
+                })
+                // debugger
+                // account.isSelected = !account.isSelected;
+                setAccountTypes(newAccountType)
               }}
               title={account.name}
               isSelected={account.isSelected}
