@@ -1,4 +1,4 @@
-import React, {setState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Text,
   View,
@@ -10,14 +10,17 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import {isValidateEmail, isValidatePassword} from '../utilies/Validation';
 
 function Login(props) {
   // States for validating
   const [errorEmail, setErrorEmail] = useState('');
   const [errorPassword, setErrorPassword] = useState('');
   // States to store email/password
-  const [email, setEmail] = userState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const isEnableLogin = isValidateEmail(email) && isValidatePassword(password);
+  console.log(isEnableLogin);
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : null}
@@ -67,30 +70,73 @@ function Login(props) {
             <Text style={{color: '#3949ab', fontWeight: 'bold'}}>Email:</Text>
             <TextInput
               onChangeText={text => {
+                setErrorEmail(isValidateEmail(email) ? '' : 'Email invalid.');
                 setEmail(text);
               }}
+              textContentType="username"
               placeholder="example@gmail.com"
               style={{
                 color: 'black',
+                borderWidth: 2,
+                borderRadius: 12,
+                marginVertical: 4,
+                borderColor: errorEmail == '' ? '#3949ab' : 'red',
+                paddingStart: 16,
+                height: 45,
               }}
             />
-
+            <Text
+              style={{
+                color: 'red',
+                fontSize: 14,
+                marginStart: 16,
+                fontWeight: 'bold',
+              }}>
+              {errorEmail}
+            </Text>
             <Text style={{color: '#3949ab', fontWeight: 'bold'}}>
               Password:
             </Text>
             <TextInput
               onChangeText={text => {
+                setErrorPassword(
+                  isValidatePassword(text)
+                    ? ''
+                    : 'Password have to at least 3 characters.',
+                );
                 setPassword(text);
               }}
               placeholder="Enter your password"
               secureTextEntry={true}
+              style={{
+                color: 'black',
+                borderWidth: 2,
+                borderRadius: 12,
+                marginVertical: 4,
+                borderColor: errorPassword == '' ? '#3949ab' : 'red',
+                paddingStart: 16,
+                height: 45,
+              }}
             />
+            <Text
+              style={{
+                color: 'red',
+                fontSize: 14,
+                marginStart: 16,
+                fontWeight: 'bold',
+              }}>
+              {errorPassword}
+            </Text>
           </View>
 
           <View flexDirection="column" style={{flex: 20, alignItems: 'center'}}>
             <TouchableOpacity
+              onPress={()=>{
+                alert('email: '+email)
+              }}
+              disabled={!isEnableLogin}
               style={{
-                backgroundColor: '#3949ab',
+                backgroundColor: isEnableLogin ? '#3949ab' : '#c5cae9' ,
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius: 12,
@@ -150,7 +196,6 @@ function Login(props) {
               <Icon name="google-plus-g" size={42} color={'red'} />
             </View>
           </View>
-          <TouchableOpacity onChangeText={} ></TouchableOpacity>
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
