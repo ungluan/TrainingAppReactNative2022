@@ -10,9 +10,9 @@ import {
     Welcome,
     HookScreen,
     Login,
-    FoodList
-} from './screens/index'
-
+    FoodList,
+    ProductGirdView
+} from './screens/index';
 // let fakedProducts = [
 //     {
 //         productName: 'iphone 3',
@@ -45,4 +45,5 @@ import {
 //   />
 // ));
 
-AppRegistry.registerComponent(appName, () => FoodList)
+// AppRegistry.registerComponent(appName, () => ProductGirdView)
+AppRegistry.registerComponent(appName, () => ProductGirdView)
