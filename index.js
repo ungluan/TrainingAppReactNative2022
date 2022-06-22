@@ -5,10 +5,13 @@
 import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
-import Welcome from './screens/WelcomeScreen'
-import Login from './screens/Login'
 import React from 'react';
-import example from './screens/HookScreen'
+import {
+    Welcome,
+    HookScreen,
+    Login,
+    FoodList
+} from './screens/index'
 
 // let fakedProducts = [
 //     {
@@ -42,4 +45,4 @@ import example from './screens/HookScreen'
 //   />
 // ));
 
-AppRegistry.registerComponent(appName, () => Login)
+AppRegistry.registerComponent(appName, () => FoodList)
