@@ -25,6 +25,8 @@ const Welcome = props => {
       isSelected: false,
     },
   ]);
+  const {navigation, route} = props
+  const {navigate, goBack} = navigation
   return (
     <View
       style={{
@@ -86,6 +88,7 @@ const Welcome = props => {
           }}>
           {accountTypes.map(account => 
             <MyButton
+              key = {account.name}
               onPressed={() => {
                 let newAccountType = accountTypes.map(item =>{
                   return {
@@ -118,7 +121,11 @@ const Welcome = props => {
         <View
           style={{
             flex: 20,
-          }}></View>
+          }}>
+            <MyButton  onPressed={()=>{
+            navigate('Login')
+          }} title={'Login'} isSelected={false} /> 
+          </View>
       </ImageBackground>
     </View>
   );

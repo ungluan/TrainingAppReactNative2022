@@ -3,7 +3,7 @@
  */
 
 import {AppRegistry} from 'react-native';
-import App from './App';
+// import App from './App';
 import {name as appName} from './app.json';
 import React from 'react';
 import {
@@ -13,6 +13,7 @@ import {
     FoodList,
     ProductGirdView
 } from './screens/index';
+import App from './navigation/App'
 // let fakedProducts = [
 //     {
 //         productName: 'iphone 3',
@@ -46,4 +47,4 @@ import {
 // ));
 
 // AppRegistry.registerComponent(appName, () => ProductGirdView)
-AppRegistry.registerComponent(appName, () => ProductGirdView)
+AppRegistry.registerComponent(appName, () => App)
