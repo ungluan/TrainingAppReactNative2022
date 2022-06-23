@@ -185,7 +185,7 @@ function ProductGirdView(props) {
                 <Text
                   style={{
                     textAlign: 'right',
-                    alignItem: 'flex-end',
+                    // alignItem: 'flex-end',
                     color: 'black',
                     fontSize: 18,
                     marginTop: 16,
