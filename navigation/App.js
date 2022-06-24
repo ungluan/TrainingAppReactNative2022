@@ -6,7 +6,7 @@ import {StackRouter} from 'react-navigation';
 import {fontSize, colors} from '../constants';
 import {View, Text} from 'react-native';
 import {Welcome, Login, FoodList, ProductGirdView} from '../screens';
-import 'react-native-gesture-handler';
+// import 'react-native-gesture-handler';
 import UITab from './UITab'
 
 const Stack = createNativeStackNavigator()

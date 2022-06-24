@@ -1,9 +1,11 @@
 /**
- * yarn add react-native-navigation
- * yarn add react-native-safe-area-context
- * yarn add @react-navigation/bottom-tabs
- * yarn add @react-navigation/native
- * yarn add @react-navigation/native-stack
+ * * yarn add react-native-navigation
+ * * yarn add @react-navigation/bottom-tabs
+ * * yarn add @react-navigation/native-stack
+ * ------------------------------------------
+ * ? (Option) yarn add @react-navigation/native 
+ * ? (Option) yarn add react-native-safe-area-context
+ * 
  */
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
