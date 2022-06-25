@@ -14,7 +14,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {StackRouter} from 'react-navigation';
 import {fontSize, colors} from '../constants';
 import {View, Text, SafeAreaView} from 'react-native';
-import {Welcome, Login, FoodList, ProductGirdView} from '../screens';
+import {Welcome, Login, FoodList, ProductGirdView, Profile} from '../screens';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Tab = createBottomTabNavigator();
@@ -58,6 +58,16 @@ function UITab(props) {
           component={ProductGirdView}
           options={{
             tabBarLabel: 'Cleaner',
+            tabBarLabelStyle: {
+                fontSize: 14
+            }
+          }}
+        />
+        <Tab.Screen
+          name={'Profile'}
+          component={Profile}
+          options={{
+            tabBarLabel: 'Profile',
             tabBarLabelStyle: {
                 fontSize: 14
             }
