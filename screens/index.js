@@ -5,11 +5,13 @@ import FoodList from "./FoodList/FoodList"
 // import ProductGridView from './ProductGrid/ProductGridView'
 import ProductGirdView from "./ProductGrid/ProductGridView"
 import Profile from './Profile'
+import Chat from './Chat/Chat'
 export{
     Welcome,
     Login,
     HookScreen,
     FoodList,
     ProductGirdView,
-    Profile
+    Profile,
+    Chat
 }

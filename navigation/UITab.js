@@ -14,7 +14,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {StackRouter} from 'react-navigation';
 import {fontSize, colors} from '../constants';
 import {View, Text, SafeAreaView} from 'react-native';
-import {Welcome, Login, FoodList, ProductGirdView, Profile} from '../screens';
+import {Welcome, Login, FoodList, ProductGirdView, Profile, Chat} from '../screens';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Tab = createBottomTabNavigator();
@@ -34,11 +34,14 @@ const screenOptions = ({route}) => ({
         ? 'bacon'
         : screenName == 'ProductGridView'
         ? 'broom'
-        : 'user';
+        : screenName == 'Chat' ? 'comment-dots' : 'user';
     return (
       <Icon
+        style={{
+          paddingTop: 4
+        }}
         name={iconName}
-        size={18}
+        size={22}
         color={focused ? 'white' : colors.inactive}
       />
     );
@@ -52,6 +55,16 @@ function UITab(props) {
         component={FoodList}
         options={{
           tabBarLabel: 'Food',
+          tabBarLabelStyle: {
+            fontSize: 14,
+          },
+        }}
+      />
+      <Tab.Screen
+        name={'Chat'}
+        component={Chat}
+        options={{
+          tabBarLabel: 'Chat',
           tabBarLabelStyle: {
             fontSize: 14,
           },
