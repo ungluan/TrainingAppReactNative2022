@@ -3,9 +3,9 @@
  * * yarn add @react-navigation/bottom-tabs
  * * yarn add @react-navigation/native-stack
  * ------------------------------------------
- * ? (Option) yarn add @react-navigation/native 
+ * ? (Option) yarn add @react-navigation/native
  * ? (Option) yarn add react-native-safe-area-context
- * 
+ *
  */
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -29,7 +29,12 @@ const screenOptions = ({route}) => ({
   ),
   tabBarIcon: ({focused, color, size}) => {
     let screenName = route.name;
-    let iconName = screenName == 'FoodList' ? 'bacon' : 'broom';
+    let iconName =
+      screenName == 'FoodList'
+        ? 'bacon'
+        : screenName == 'ProductGridView'
+        ? 'broom'
+        : 'user';
     return (
       <Icon
         name={iconName}
@@ -41,39 +46,38 @@ const screenOptions = ({route}) => ({
 });
 function UITab(props) {
   return (
-      <Tab.Navigator screenOptions={screenOptions}>
-        <Tab.Screen
-          name={'FoodList'}
-          component={FoodList}
-          options={{
-            tabBarLabel: 'Food',
-            tabBarLabelStyle: {
-                fontSize: 14
-            }
-          }}
-
-        />
-        <Tab.Screen
-          name={'ProductGirdView'}
-          component={ProductGirdView}
-          options={{
-            tabBarLabel: 'Cleaner',
-            tabBarLabelStyle: {
-                fontSize: 14
-            }
-          }}
-        />
-        <Tab.Screen
-          name={'Profile'}
-          component={Profile}
-          options={{
-            tabBarLabel: 'Profile',
-            tabBarLabelStyle: {
-                fontSize: 14
-            }
-          }}
-        />
-      </Tab.Navigator>
+    <Tab.Navigator screenOptions={screenOptions}>
+      <Tab.Screen
+        name={'FoodList'}
+        component={FoodList}
+        options={{
+          tabBarLabel: 'Food',
+          tabBarLabelStyle: {
+            fontSize: 14,
+          },
+        }}
+      />
+      <Tab.Screen
+        name={'ProductGridView'}
+        component={ProductGirdView}
+        options={{
+          tabBarLabel: 'Cleaner',
+          tabBarLabelStyle: {
+            fontSize: 14,
+          },
+        }}
+      />
+      <Tab.Screen
+        name={'Profile'}
+        component={Profile}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarLabelStyle: {
+            fontSize: 14,
+          },
+        }}
+      />
+    </Tab.Navigator>
   );
 }
 export default UITab;
