@@ -5,9 +5,12 @@ import {
   Image,
   ImageBackground,
   TouchableOpacity,
+  SafeAreaView,
+  StyleSheet,
 } from 'react-native';
-import {images, icons} from '../../constants';
+import {images, icons, fontsize, colors} from '../../constants';
 import {MyButton} from '../../components';
+// import stylesWelcome from './styles';
 
 const Welcome = props => {
   const [accountTypes, setAccountTypes] = useState([
@@ -24,52 +27,19 @@ const Welcome = props => {
       isSelected: false,
     },
   ]);
-  const {navigation, route} = props
-  const {navigate, goBack} = navigation
+  const {navigation, route} = props;
+  const {navigate, goBack} = navigation;
   return (
-    <View
-      style={{
-        backgroundColor: 'white',
-        flex: 1,
-      }}>
+    <SafeAreaView style={{flex: 1}}>
       <ImageBackground
         source={images.background}
         resizeMode="cover"
-        style={{
-          flex: 1,
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-start',
-            alignItems: 'flex-start',
-            flex: 20,
-            paddingTop: 16,
-          }}>
-          <Image
-            source={icons.fire}
-            style={{
-              width: 30,
-              height: 30,
-              marginStart: 10,
-              marginEnd: 5,
-            }}
-          />
-          <Text
-            style={{
-              color: 'black',
-            }}>
-            HITACHIVANTARA.CO
-          </Text>
+        style={{flex: 1}}>
+        <View style={stylesWelcome.titleAppBar}>
+          <Image source={icons.fire} style={stylesWelcome.icon} />
+          <Text style={{color: 'black'}}>HITACHIVANTARA.CO</Text>
           <View style={{flex: 1}} />
-          <Image
-            source={icons.question}
-            style={{
-              width: 30,
-              height: 30,
-              marginEnd: 10,
-            }}
-          />
+          <Image source={icons.question} style={stylesWelcome.icon} />
         </View>
         <View
           style={{
@@ -77,88 +47,64 @@ const Welcome = props => {
             justifyContent: 'space-around',
             alignItems: 'center',
           }}>
-          <Text style={{fontSize: 12}}>Welcome to</Text>
-          <Text style={{fontWeight: 'bold'}}>HITACHIVANTARA.CO</Text>
-          <Text style={{fontSize: 12}}>Please select your account type</Text>
+          <Text style={stylesWelcome.title}>Welcome to</Text>
+          <Text style={stylesWelcome.titleCompany}>HITACHIVANTARA.CO</Text>
+          <Text style={stylesWelcome.title}>
+            Please select your account type
+          </Text>
         </View>
-        <View
-          style={{
-            flex: 40,
-          }}>
-          {accountTypes.map(account => 
+        <View style={{flex: 40}}>
+          {accountTypes.map(account => (
             <MyButton
-              key = {account.name}
+              key={account.name}
               onPressed={() => {
-                let newAccountType = accountTypes.map(item =>{
+                let newAccountType = accountTypes.map(item => {
                   return {
-                      ...item,
-                      isSelected: item.name == account.name
-                    }
-                  // if(account.name == item.name){
-                  //   item.isSelected = !item.isSelected
-                  // }
-                })
-                // debugger
-                // account.isSelected = !account.isSelected;
-                setAccountTypes(newAccountType)
+                    ...item,
+                    isSelected: item.name == account.name,
+                  };
+                });
+                setAccountTypes(newAccountType);
               }}
               title={account.name}
               isSelected={account.isSelected}
             />
-          )}
-
-          {/* <MyButton onPressed={()=>{
-            alert('Influencer Clicked')
-          }} title={'Influencer'} isSelected={true} />
-          <MyButton  onPressed={()=>{
-            alert('Business Clicked')
-          }} title={'Business'} isSelected={false} />
-          <MyButton  onPressed={()=>{
-            alert('Individual Clicked')
-          }} title={'Individual'} isSelected={false} /> */}
+          ))}
         </View>
-        <View
-          style={{
-            flex: 20,
-          }}>
-            <MyButton  onPressed={()=>{
-            navigate('Login')
-          }} title={'Login'} isSelected={false} /> 
-          </View>
+        <View style={{flex: 20}}>
+          <MyButton
+            onPressed={() => {
+              navigate('Login');
+            }}
+            title={'Login'}
+            isSelected={false}
+          />
+        </View>
       </ImageBackground>
-    </View>
+    </SafeAreaView>
   );
 };
 
+const stylesWelcome = StyleSheet.create({
+  title: {
+    color: colors.inactive,
+    fontSize: fontsize.h6,
+  },
+  titleAppBar: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    flex: 20,
+    paddingTop: 16,
+  },
+  titleCompany: {
+    color: 'black',
+    fontWeight: 'bold',
+  },
+  icon: {
+    width: 30,
+    height: 30,
+    marginHorizontal: 16,
+  },
+});
 export default Welcome;
-/*
-function WelcomeScreen(props) {
-    return <Text> This is Main Screen </Text>
-}
-*/
-
-// const WelcomeScreen = (props) =>{
-//     // destructuring an object
-//     const {x,y} = props
-//     const {person} = props
-//     const {name, age, email} = person
-//     const {products} = props
-//     // debugger
-
-//     // const {name, ema}
-//     // const => let => var
-//     return <View style = {{
-//         backgroundColor : 'white',
-//     }} >
-//         <Text> X = {x}, Y = {y} </Text>
-//         <Text> {name}, {age}, {email} </Text>
-//         {/* <Text>{JSON.stringify(products)}</Text> */}
-//         {products.map(eachProduct =>
-//             <Text> {eachProduct.productName}, {eachProduct.year} </Text>
-//         )}
-//         <Text>sum 2 and 3 = {sum2Number(2,3)}</Text>
-//         <Text>sub 2 and 3 = {sub2Number(2,3)}</Text>
-//         <Text>PI = {PI}</Text>
-
-//     </View>
-// }
