@@ -6,9 +6,8 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
-// import {sum2Number, sub2Number, PI} from '../utilies/Calculation';
-import {images, icons} from '../constants';
-import {MyButton} from '../components';
+import {images, icons} from '../../constants';
+import {MyButton} from '../../components';
 
 const Welcome = props => {
   const [accountTypes, setAccountTypes] = useState([

@@ -10,7 +10,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {isValidateEmail, isValidatePassword} from '../utilies/Validation';
+import {isValidateEmail, isValidatePassword} from '../../utilies/Validation';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 function Login(props) {
@@ -60,7 +60,7 @@ function Login(props) {
                 Already have an Account?
               </Text>
               <Image
-                source={require('../assets/image_01.jpg')}
+                source={require('../../assets/image_01.jpg')}
                 style={{
                   width: 200,
                   height: 200,
