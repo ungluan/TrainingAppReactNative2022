@@ -6,6 +6,7 @@ import FoodList from "./FoodList/FoodList"
 import ProductGirdView from "./ProductGrid/ProductGridView"
 import Profile from './Profile'
 import Chat from './Chat/Chat'
+import Messenger from './Messenger/Messenger'
 export{
     Welcome,
     Login,
@@ -13,5 +14,6 @@ export{
     FoodList,
     ProductGirdView,
     Profile,
-    Chat
+    Chat,
+    Messenger
 }

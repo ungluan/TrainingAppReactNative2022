@@ -5,7 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {StackRouter} from 'react-navigation';
 import {fontSize, colors} from '../constants';
 import {View, Text} from 'react-native';
-import {Welcome, Login, FoodList, ProductGirdView} from '../screens';
+import {Welcome, Login, FoodList, ProductGirdView, Messenger, Chat} from '../screens';
 // import 'react-native-gesture-handler';
 import UITab from './UITab'
 
@@ -19,6 +19,9 @@ function App(props){
             <Stack.Screen name={"Welcome"} component={Welcome} />
             <Stack.Screen name={"Login"} component={Login} />
             <Stack.Screen name={"UITab"} component={UITab} />
+            <Stack.Screen name={"Chat"} component={Chat} />
+            <Stack.Screen name={"Messenger"} component={Messenger} />
+
         </Stack.Navigator>
     </NavigationContainer>
 }
