@@ -8,10 +8,12 @@ import {
   KeyboardAvoidingView,
   Keyboard,
   TouchableWithoutFeedback,
+  StyleSheet
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {isValidateEmail, isValidatePassword} from '../../utilies/Validation';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {colors, fontsize} from '../../constants'
 
 function Login(props) {
   // States for validating
@@ -35,10 +37,10 @@ function Login(props) {
         onPress={() => {
           Keyboard.dismiss();
         }}>
-        <SafeAreaView>
+        <SafeAreaView style={{flex: 1}} >
           <View
             style={{
-              height: '100%',
+              flex: 1,
               paddingStart: 16,
               paddingEnd: 16,
               backgroundColor: 'white',
