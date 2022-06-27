@@ -13,7 +13,7 @@ import {
     FoodList,
     ProductGirdView
 } from './screens/index';
-import App from './navigation/App'
+import App from './src/navigation/App'
 // let fakedProducts = [
 //     {
 //         productName: 'iphone 3',
